@@ -1,6 +1,7 @@
 <?php
-
+session_start();
 if (isset($_POST['signup'])) {
+   
     if ($_POST["signup"] == "Sign Up") {
         $first = $_POST['firstname'];
         $last = $_POST['lastname'];
@@ -27,7 +28,8 @@ if (isset($_POST['signup'])) {
         }
 
         if (!isset($error)) {
-            $message = "Sign up successful " . "Please login to use your secret diary";
+            $_SESSION['email'] = $email;
+            header("Location:testmail.php");
         }
     }
 }

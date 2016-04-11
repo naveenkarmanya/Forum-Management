@@ -2,6 +2,8 @@
 include("registration.php");
 include("login.php");
 include("adminlogin.php");
+
+
 ?>
 
 <!doctype html>
@@ -136,7 +138,7 @@ include("adminlogin.php");
 
                     </div>
                     <input type="submit" class="btn btn-success margintop" name="login1" id="login1" value="Login">
-                    <p class=" col-md-6 pull-right" id="findpswd"><a href="#forgotpassword">Forgot Password</a></p>
+                    
 
                 </form>
 
@@ -206,7 +208,7 @@ include("adminlogin.php");
         </div>
         <div class="container margintop pwd" id="forgotpassword" hidden>
 
-            <form class="form-horizontal">
+            <form class="form-horizontal" method="post" action="forgotpassword.php">
                 <h1><u>Find Your Account</u></h1>
                 <div class="well grey">
 
@@ -219,13 +221,14 @@ include("adminlogin.php");
                         </div>
 
                     </div>
-                    <input type="submit" class="btn btn-default margintop" id="search" value="search">
-                    <input type="submit" class="btn btn-default margintop" id="cancel" value="cancel">
+                    <input type="submit" class="btn btn-default margintop" name="search" id="search" value="Search">
+                    <input type="submit" class="btn btn-default margintop" name="cancel" id="cancel" value="cancel">
 
                 </div>
 
 
             </form>
+           
         </div>
 
     </body>

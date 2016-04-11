@@ -1,7 +1,26 @@
 <?php
-
 session_start();
-$email = $_SESSION['email'];
+if (isset($_POST['search'])) {
+   
+    if ($_POST["search"] == "Search") {
+        
+       
+        $email = $_POST['forgotemail'];
+      
+
+
+        $link = mysqli_connect('localhost', 'dbuser', '123', 'userdata');
+
+        
+            $queryselect = "select email,password from forum where email='$email'";
+            $resultselect = mysqli_query($link, $queryselect);
+            $values = mysqli_fetch_array($resultselect);
+            
+
+            if (!$values) {
+                $error = "email error";
+            } 
+ else {
 
 /**
  * This example shows settings to use when sending via Google's Gmail servers.
@@ -37,6 +56,7 @@ $mail->Username = "navvi84.ng@gmail.com";
 //Password to use for SMTP authentication
 $mail->Password = "mydream999";
 //Set who the message is to be sent from
+$body="Password Recovery "."$values[1]";
 $mail->setFrom('navvi84.ng@gmail.com', 'First Last');
 //Set an alternative reply-to address
 $mail->addReplyTo('navvi84.ng@gmail.com', 'First Last');
@@ -46,7 +66,7 @@ $mail->addAddress($email, 'Naveen');
 $mail->Subject = 'PHPMailer GMail SMTP test';
 //Read an HTML message body from an external file, convert referenced images to embedded,
 //convert HTML into a basic plain-text alternative body
-$mail->msgHTML(file_get_contents('contents.html'), dirname(__FILE__));
+$mail->msgHTML($body);
 //Replace the plain text body with one created manually
 $mail->AltBody = 'This is a plain-text message body';
 //Attach an image file
@@ -56,5 +76,8 @@ if (!$mail->send()) {
     echo "Mailer Error: " . $mail->ErrorInfo;
 } else {
     echo "Message sent!";
+}
+ }
+    }
 }
 ?>

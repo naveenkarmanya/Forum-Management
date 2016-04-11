@@ -31,14 +31,7 @@
                     <ul class="nav navbar-nav">
 
                         <li class="dropdown">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user">UserProfile</span><span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li id="editprofile"><a href="#edit"><span class="glyphicon glyphicon-edit">EditProfile</span></a></li>
-                                <li><a href="#"><span class="glyphicon glyphicon-hand-right">ViewProfile</span></a></li>
-
-                            </ul>
-                        </li>
-                        <li id="changepwd"><a href="#changepassword"><span class="glyphicon glyphicon-adjust">ChangePassword</span></a></li>
+                            <a href="#"><span class="glyphicon glyphicon-user">UsersProfile</a>li>
 
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
@@ -140,7 +133,7 @@
 
             </form>
         </div>
-        
+
     </body>
 </html>
 
