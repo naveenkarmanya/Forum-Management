@@ -1,0 +1,40 @@
+<?php
+
+if (isset($_POST['newpassword'])) {
+    
+$id = $_SESSION['id'];
+$link = mysqli_connect('localhost', 'dbuser', '123', 'userdata');
+$query1 = "select password from forum where forumid='$id'";
+$result1 = mysqli_query($link, $query1);
+if(!$result1)
+{
+    echo "not found";
+}
+ else {
+$row = mysqli_fetch_row($result1);
+$currentpassword=$_POST['currentpassword'];
+$newpassword=$_POST['changepassword'];
+$conformpassword=$_POST['retypepassword'];
+
+if($currentpassword==$row[0])
+{
+    
+    $query2 = "update forum set password='$newpassword' where forumid='$id'";
+if($conformpassword==$newpassword){
+    $result2 = mysqli_query($link, $query2);
+
+        if (!$result2) {
+            echo "There is an error  ";
+        } else {
+            echo "successfully password changed Please".'<a href="#">---Login---</a>.here';
+        }
+    }
+
+
+else{
+echo "error not match";
+}
+}
+}
+}
+?>

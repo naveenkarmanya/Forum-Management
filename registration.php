@@ -1,7 +1,8 @@
 <?php
+
 session_start();
 if (isset($_POST['signup'])) {
-   
+
     if ($_POST["signup"] == "Sign Up") {
         $first = $_POST['firstname'];
         $last = $_POST['lastname'];

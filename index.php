@@ -2,8 +2,7 @@
 include("registration.php");
 include("login.php");
 include("adminlogin.php");
-
-
+include("forgotpassword.php");
 ?>
 
 <!doctype html>
@@ -138,7 +137,7 @@ include("adminlogin.php");
 
                     </div>
                     <input type="submit" class="btn btn-success margintop" name="login1" id="login1" value="Login">
-                    
+
 
                 </form>
 
@@ -228,7 +227,7 @@ include("adminlogin.php");
 
 
             </form>
-           
+
         </div>
 
     </body>

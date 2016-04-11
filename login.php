@@ -7,15 +7,15 @@ if (isset($_POST['logincheck'])) {
 
     $link = mysqli_connect('localhost', 'dbuser', '123', 'userdata');
 
-    $query1 = "select email,password from forum where password='$password' and email='$email'";
+    $query1 = "select forumid,email,password from forum where password='$password' and email='$email'";
 
     $result1 = mysqli_query($link, $query1);
 
-    $row = mysqli_fetch_array($result1);
+    $row = mysqli_fetch_row($result1);
     if (!$row) {
         $error = "Login Failed check the credentials ";
     } else {
-        $_SESSION['id'] = $row['forumid'];
+        $_SESSION['id'] = $row[0];
 
         header("Location:userdashboard.php");
     }

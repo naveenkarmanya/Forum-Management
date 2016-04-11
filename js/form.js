@@ -26,16 +26,23 @@ $(document).ready(function ()
         $("#home").hide();
         $("#forgotpassword").show();
     });
-   
+
 
     $("#changepwd").click(function () {
 
         $("#edit").hide();
         $("#changepassword").show();
+        $("#view").hide();
     });
     $("#editprofile").click(function () {
         $("#edit").show();
         $("#changepassword").hide();
-        
+        $("#view").hide();
+    });
+    $("#view").hide();
+    $("#viewprofile").click(function () {
+        $("#edit").hide();
+        $("#changepassword").hide();
+        $("#view").show();
     });
 });
