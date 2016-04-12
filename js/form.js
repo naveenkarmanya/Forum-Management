@@ -6,6 +6,8 @@ $(document).ready(function ()
         $("#register").hide();
         $("#forgotpassword").hide();
         $("#home").show();
+        $("#loginhere").hide();
+        s
 
     });
     $("#admin").click(function () {
@@ -13,18 +15,29 @@ $(document).ready(function ()
         $("#register").hide();
         $("#home").hide();
         $("#forgotpassword").hide();
+        $("#loginhere").hide();
     });
-    $("#singnup,#newuser,#newreg").click(function () {
+    $("#singnup,#newreg").click(function () {
         $("#login").hide();
         $("#register").show();
         $("#home").hide();
         $("#forgotpassword").hide();
+        $("#loginhere").hide();
+    });
+    $("#loginto").click(function () {
+        $("#login").hide();
+        $("#register").hide();
+        $("#home").hide();
+        $("#loginhere").show();
+        $("#forgotpassword").hide();
+
     });
     $("#findpswd").click(function () {
         $("#login").hide();
         $("#register").hide();
         $("#home").hide();
         $("#forgotpassword").show();
+        $("#loginhere").hide();
     });
 
 
@@ -45,15 +58,32 @@ $(document).ready(function ()
         $("#changepassword").hide();
         $("#view").show();
     });
-     
+
     $("#addAdminusers").click(function () {
         $("#addusers").show();
-         $("#userprofilehide").hide();
-       
+        $("#userprofilehide").hide();
+
     });
     $("#userprofile").click(function () {
         $("#userprofilehide").show();
         $("#addusers").hide();
-       
+
+    });
+    $("#FirstName").keyup(function () {
+        var FirstName = $("#FirstName").val();
+        var status = false;
+        if (FirstName == null || FirstName == "")
+        {
+            $("#FirstName").css({"border-color": "red"});
+
+            status = false;
+        } else
+        {
+            $("#fnamelocation").css({"border-color": "green"});
+            status = true;
+        }
+
+
+
     });
 });

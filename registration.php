@@ -30,7 +30,7 @@ if (isset($_POST['signup'])) {
 
         if (!isset($error)) {
             $_SESSION['email'] = $email;
-            header("Location:testmail.php");
+            header("Location:registrationsuccess.php");
         }
     }
 }

@@ -3,7 +3,6 @@ include("registration.php");
 include("login.php");
 include("adminlogin.php");
 include("forgotpassword.php");
-
 ?>
 
 <!doctype html>
@@ -20,22 +19,18 @@ include("forgotpassword.php");
         <script src="js/jquery.min.js" type="text/JavaScript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/form.js" type="text/javascript"></script>
-
-        <style>
-            .navbar brand
-            {
-                font-size: 1.8em;
-            }
-            .margintop
-            {
-                position: relative;
-                top:85px;
-            }
+        <script src="js/passwordvalidation.js" type="text/javascript"></script>
 
 
-
-        </style>
     </head>
+    <?php
+    if (isset($error)) {
+        echo '<div class="alert alert-danger">' . $error . '</div>';
+    }
+    if (isset($message)) {
+        echo '<div class="alert alert-danger">' . $message . '</div>';
+    }
+    ?>
 
     <body data-spy="scroll" data-target=".navbar-collapse">
         <nav class="nav navbar-inverse navbar-fixed-top">
@@ -53,18 +48,18 @@ include("forgotpassword.php");
                     <ul class="nav navbar-nav">
                         <li class="active" id="formhome"><a href="#home"><span class="glyphicon glyphicon-home"></span>Home</a></li>
                         <li id="admin"><a href="#login"><span class="glyphicon glyphicon-log-in">AdminLogin</span></a></li>
-                        <li id="newuser"><a href="#login"><span class="glyphicon glyphicon-user">NewUser</span></a></li>
-
+                        <li id="loginto"><a href="#loginhere"><span class="glyphicon glyphicon-log-in">Login</span></a></li>
+                        <li id="singnup"><a href="#register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
                     </ul>
-                    <form class="navbar-form navbar-right" id="" method="post">
-                        <ul class="nav navbar-nav">
-                            <li id="singnup"><a href="#register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li></ul>
+                    <form class="navbar-form navbar-right" id="loginhere" method="post" hidden>
+
+
                         <div class="form-group">
-                            <input type="email" placeholder="Email" name="loginemail" class="form-control" title="e">
+                            <input type="email" placeholder="Email" name="loginemail" class="form-control" required oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter Address')">
                         </div>
                         <div class="form-group">
 
-                            <input type="password" placeholder="Password" name="loginpassword" class="form-control">
+                            <input type="password" placeholder="Password" name="loginpassword" class="form-control" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter Password')">
 
                         </div>
 
@@ -72,14 +67,7 @@ include("forgotpassword.php");
                         <br>
                         <p class=" col-md-6 pull-right" id="findpswd"><a href="#forgotpassword">Forgot Password</a></p>
                         <p class=" pull-right" id="newreg"><a href="#register">New User Registration</a></p> 
-                        <?php
-                    if (isset($error)) {
-                        echo '<div class="alert alert-danger">' . $error . '</div>';
-                    }
-                    if (isset($message)) {
-                        echo '<div class="alert alert-danger">' . $message . '</div>';
-                    }
-                    ?>
+
                     </form>
 
 
@@ -135,13 +123,13 @@ include("forgotpassword.php");
                     <div class="form-group">
                         <label for="loginemail1" class="control-label col-md-2">Username*:</label>
                         <div class="col-md-6">
-                            <input type="email" class="form-control" id="loginemail1" placeholder="email address" name="loginemail1"></div>
+                            <input type="email" class="form-control" id="loginemail1" required placeholder="Email Address" name="loginemail1" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter Address ')"></div>
                         <span id="userlocation"></span>
                     </div>
                     <div class="form-group">
                         <label for="loginpassword1" class="control-label col-md-2">Password*:</label>
                         <div class="col-md-6">
-                            <input type="password" class="form-control" id="loginpassword1" name="loginpassword1" placeholder="loginpassword"></div>
+                            <input type="password" class="form-control" id="loginpassword1" name="loginpassword1" required="" placeholder="Password" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter Password')"></div>
 
 
                     </div>
@@ -159,14 +147,14 @@ include("forgotpassword.php");
                     <div class="form-group">
                         <label for="firstname" class="control-label col-md-2">First Name*:</label>
                         <div class="col-md-6">
-                            <input type="text" title="Your First name" class="form-control" id="firstname" name="firstname" placeholder="First Name"></div>
+                            <input type="text" class="form-control" id="FirstName" name="firstname" placeholder="First Name" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter First Name')"></div>
                         <span id="fnamelocation"></span>
 
                     </div>
                     <div class="form-group">
-                        <label for="lastname" title="Your Last Nmae" class="control-label col-md-2">Last Name*:</label>
+                        <label for="lastname" class="control-label col-md-2">Last Name*:</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name"></div>
+                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter Last Name')"></div>
                         <span id="lnamelocation"></span>
 
                     </div>
@@ -175,35 +163,35 @@ include("forgotpassword.php");
                         <div class="col-md-6">
                             <div class="input-group">
                                 <span class="input-group-addon">@</span>
-                                <input type="email" class="form-control" id="email" name="email" title="Your Email" placeholder="your Email"></div>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter Address')"></div>
                         </div>
                         <span id="emaillocation"></span>
                     </div>
                     <div class="form-group">
-                        <label for="password" class="control-label col-md-2">Password*:</label>
+                        <label for="newPassword" class="control-label col-md-2">Password*:</label>
                         <div class="col-md-6">
-                            <input type="password" title="Your Password" class="form-control" id="password" name="password" placeholder="Enter password"></div>
+                            <input type="password" title="Your Password" class="form-control" id="newPassword" name="password" placeholder="Enter Password" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter Password')"></div>
                         <span id="pwdlocation"></span>
                     </div>
                     <div class="form-group">
-                        <label for="conformpassword" class="control-label col-md-2">Conform Password*:</label>
+                        <label for="confirmPassword" class="control-label col-md-2">confirm Password*:</label>
                         <div class="col-md-6">
-                            <input type="password" title="type same password from above field" class="form-control" id="conformpassword" name="conformpassword" placeholder="Retype password"></div>
+                            <input type="password" title="type same password from above field" class="form-control" id="confirmPassword" name="conformpassword" placeholder="Retype Password" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Password shoud be Match')"></div>
                         <span id="cpwdlocation"></span>
                     </div>
 
                     <div class="form-group">
                         <label for="mobile" class="control-label col-md-2">Mobile Number*:</label>
                         <div class="col-md-6">
-                            <input type="tel" title="Your Mobile Number" class="form-control" id="mobile" name="mobile" placeholder="your Mobile Number" maxlength="13"></div>
+                            <input type="tel" title="Your Mobile Number" class="form-control" id="mobile" name="mobile" placeholder="your Mobile Number" maxlength="10" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter Mobile Number')"></div>
                         <span id="mobilelocation"></span>
                     </div>
                     <div class="checkbox">
-                        <label> <input type="checkbox" name="checkbox">Read Terms & Conditions*</label>
+                        <label> <input type="checkbox" name="checkbox" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please select this check box')">Read Terms & Conditions*</label>
 
                     </div>
                     <input type="submit" class="btn btn-success btn-lg margintop" name="signup" value="Sign Up">
-                    
+
                 </form>
             </div>
         </div>
@@ -218,7 +206,7 @@ include("forgotpassword.php");
                         <div class="col-md-6">
                             <div class="input-group">
                                 <span class="input-group-addon">@</span>
-                                <input type="email" class="form-control" id="forgotemail" name="forgotemail" title="Your Email" placeholder="your Email"></div>
+                                <input type="email" class="form-control" id="forgotemail" name="forgotemail" placeholder="Email Address" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter Address')"></div>
                         </div>
 
                     </div>

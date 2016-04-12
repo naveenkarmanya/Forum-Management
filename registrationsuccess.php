@@ -55,6 +55,7 @@ $mail->AltBody = 'This is a plain-text message body';
 if (!$mail->send()) {
     echo "Mailer Error: " . $mail->ErrorInfo;
 } else {
-    header("Location:adminsignupsuccess.php");
+    
+    header("Location:registrationsuccessmessage.php");
 }
 ?>

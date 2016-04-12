@@ -116,19 +116,19 @@
 
         <div class="container margintop" id="addusers" hidden>
             <div class="well grey">
-                <form class="form-horizontal" id="form1" method="post">
+                <form class="form-horizontal" id="form1" method="post" action="adminusersubmit.php">
                     <h1><u>Create New Users</u></h1>
                     <div class="form-group">
                         <label for="firstname" class="control-label col-md-2">First Name*:</label>
                         <div class="col-md-6">
-                            <input type="text" title="Your First name" class="form-control" id="firstname" name="firstname" placeholder="First Name"></div>
+                            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter First Nmae')"></div>
                         <span id="fnamelocation"></span>
 
                     </div>
                     <div class="form-group">
                         <label for="lastname" title="Your Last Nmae" class="control-label col-md-2">Last Name*:</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name"></div>
+                            <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last Name" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter Last Name')"></div>
                         <span id="lnamelocation"></span>
 
                     </div>
@@ -137,31 +137,31 @@
                         <div class="col-md-6">
                             <div class="input-group">
                                 <span class="input-group-addon">@</span>
-                                <input type="email" class="form-control" id="email" name="email" title="Your Email" placeholder="your Email"></div>
+                                <input type="email" class="form-control" id="email" name="email" placeholder="Email Address" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter Address')"></div>
                         </div>
                         <span id="emaillocation"></span>
                     </div>
                     <div class="form-group">
                         <label for="password" class="control-label col-md-2">Password*:</label>
                         <div class="col-md-6">
-                            <input type="password" title="Your Password" class="form-control" id="password" name="password" placeholder="Enter password"></div>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter Password')"></div>
                         <span id="pwdlocation"></span>
                     </div>
                     <div class="form-group">
                         <label for="conformpassword" class="control-label col-md-2">Conform Password*:</label>
                         <div class="col-md-6">
-                            <input type="password" title="type same password from above field" class="form-control" id="conformpassword" name="conformpassword" placeholder="Retype password"></div>
+                            <input type="password" class="form-control" id="conformpassword" name="conformpassword" placeholder="Retype Password" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Password should be Match')"></div>
                         <span id="cpwdlocation"></span>
                     </div>
 
                     <div class="form-group">
                         <label for="mobile" class="control-label col-md-2">Mobile Number*:</label>
                         <div class="col-md-6">
-                            <input type="tel" title="Your Mobile Number" class="form-control" id="mobile" name="mobile" placeholder="your Mobile Number" maxlength="13"></div>
+                            <input type="tel"class="form-control" id="mobile" name="mobile" placeholder="Mobile Number" maxlength="10" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter Mobile Number')"></div>
                         <span id="mobilelocation"></span>
                     </div>
                     <div class="checkbox">
-                        <label> <input type="checkbox" name="checkbox">Read Terms & Conditions*</label>
+                        <label> <input type="checkbox" name="checkbox" required="">Read Terms & Conditions*</label>
 
                     </div>
                     <input type="submit" class="btn btn-success btn-lg margintop" name="adminCreateUser" value="Submit">
@@ -174,15 +174,23 @@
                     }
                     ?>
                 </form>
-          
-        
+
+
                 <div class="col-md-8 top col-md-offset-1">
-                    <?php if(isset($error)){echo "<div class='alert alert-danger'>".$error."</div>";}?>
-                    <?php if(isset($message)){echo "<div class='alert alert-success'>".$message."</div>";}?>
+                    <?php
+                    if (isset($error)) {
+                        echo "<div class='alert alert-danger'>" . $error . "</div>";
+                    }
+                    ?>
+                    <?php
+                    if (isset($message)) {
+                        echo "<div class='alert alert-success'>" . $message . "</div>";
+                    }
+                    ?>
                 </div>
             </div>
         </div>
-    
+
 
     </body>
 </html>

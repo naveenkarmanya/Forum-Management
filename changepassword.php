@@ -20,21 +20,21 @@ if($currentpassword==$row[0])
 {
     
     $query2 = "update forum set password='$newpassword' where forumid='$id'";
-if($conformpassword==$newpassword){
+
     $result2 = mysqli_query($link, $query2);
 
         if (!$result2) {
             echo "There is an error  ";
         } else {
-            echo "successfully password changed Please".'<a href="#">---Login---</a>.here';
+            $message= "successfully password changed Please";
         }
-    }
+  
 
-
+}
 else{
-echo "error not match";
+$error= "Invalid password for email Please try again";
 }
-}
+
 }
 }
 ?>

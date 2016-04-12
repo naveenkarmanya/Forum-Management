@@ -9,16 +9,16 @@ $resultuser=mysqli_query($link,$queryuser);
 $rowuser=mysqli_fetch_row($resultuser);
 if($rowuser){
     
-    $userFirstName=$rowuser[1];
-    $userLastName=$rowuser[2];
-    $userEmailAddress=$rowuser[3];
-    $userMobileNumber=$rowuser[4];
-    $userAddressOne=$rowuser[5];
-    $userAddressTwo=$rowuser[6];
-    $userCity=$rowuser[7];
-    $userState=$rowuser[8];
-    $userCountry=$rowuser[9];
-    $userZipCode=$rowuser[10];
+    $userFirstName=$rowuser[0];
+    $userLastName=$rowuser[1];
+    $userEmailAddress=$rowuser[2];
+    $userMobileNumber=$rowuser[5];
+    $userAddressOne=$rowuser[6];
+    $userAddressTwo=$rowuser[7];
+    $userCity=$rowuser[8];
+    $userState=$rowuser[9];
+    $userCountry=$rowuser[10];
+    $userZipCode=$rowuser[11];
 }
  else {
     $error="Could not retrieve the details try again";
@@ -44,7 +44,7 @@ if(!$result){
     $error="Error while registering Try ones again";
 }
 else{
- $message=$emailAddress." Id is successfully Edited"; 
+ $message=$emailAddress." Id is successfully Edited"." <br>Please "."<a href='adminviewedit.php'><h2>CLICK ME TO GO</h2></a>"." View Page"; 
  
 }
 }

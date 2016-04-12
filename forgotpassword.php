@@ -74,7 +74,7 @@ if (isset($_POST['search'])) {
             if (!$mail->send()) {
                 echo "Mailer Error: " . $mail->ErrorInfo;
             } else {
-                echo "Message sent!";
+                header("Location:passwordsendemail.php");
             }
         }
     }

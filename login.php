@@ -17,7 +17,7 @@ if (isset($_POST['logincheck'])) {
     } else {
         $_SESSION['id'] = $row[0];
 
-        header("Location:userdashboard.php");
+        header("Location:userloginsuccess.php");
     }
 }
 ?>

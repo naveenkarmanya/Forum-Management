@@ -70,9 +70,34 @@
 
     </head>
     <body>
-        <nav class="admindashboard">
+        <nav class="nav navbar-inverse">
+            <div class="nav container-fluid">
+                <div class="navbar-header">
+                    <a href="" class="navbar-brand"><span class="glyphicon glyphicon-education">FormManagement</span></a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
 
+                        <li class="active" id="userprofile">
+                            <a href="#userprofilehide"><span class="glyphicon glyphicon-user">UsersProfile</span></a></li>
+                        
+
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">
+                        <li> <a href="admindashboard.php"><span class="glyphicon glyphicon-step-backward">GoBack</span></a></li>
+</ul>
+                </div>
+
+
+            </div>
         </nav>
+        
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-1 top"><?php if (isset($error)) {
@@ -154,7 +179,7 @@
 
         </div>
         
-                <div class="col-md-8 col-md-offset-3 topmore">
+                <div class="col-md-6 col-md-offset-3 topmore">
                     <div id="googleMap" style="width:500px;height:380px;"></div>
                 </div>
 

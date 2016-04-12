@@ -11,9 +11,34 @@
         <script src="js/form.js" type="text/javascript"></script>
     </head>
     <body>
-        <nav class="admindashboard">
-            
+        <nav class="nav navbar-inverse">
+            <div class="nav container-fluid">
+                <div class="navbar-header">
+                    <a href="" class="navbar-brand"><span class="glyphicon glyphicon-education">FormManagement</span></a>
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+
+                        <li class="active" id="userprofile">
+                            <a href="#userprofilehide"><span class="glyphicon glyphicon-user">UsersProfile</span></a></li>
+                        
+
+                    </ul>
+                    <ul class="nav navbar-nav pull-right">
+                        <li> <a href="adminviewedit.php"><span class="glyphicon glyphicon-step-backward">GoBack</span></a></li>
+</ul>
+                </div>
+
+
+            </div>
         </nav>
+        
         <div class="container">
             <div class="row">
                 <form class="form-horizontal" method="post">

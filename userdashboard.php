@@ -17,6 +17,7 @@ include("changepassword.php");
         <script src="js/jquery.min.js" type="text/JavaScript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/form.js" type="text/javascript"></script>
+        <script src="js/passwordvalidation.js" type="text/javascript"></script>
         <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
         <script
@@ -25,9 +26,7 @@ include("changepassword.php");
         <script type="text/javascript">
 
             var geocoder = new google.maps.Geocoder();
-            var address = "sangareddy";
-
-
+            var address = "<?php echo $row[7]; ?>";
             geocoder.geocode({'address': address}, function (results, status) {
 
 
@@ -41,11 +40,12 @@ include("changepassword.php");
 
                 var myCenter = new google.maps.LatLng(latitude, longitude);
 
+
                 function initialize()
                 {
                     var mapProp = {
                         center: myCenter,
-                        zoom: 8,
+                        zoom: 12,
                         mapTypeId: google.maps.MapTypeId.ROADMAP
                     };
 
@@ -53,42 +53,42 @@ include("changepassword.php");
 
                     var marker = new google.maps.Marker({
                         position: myCenter,
+                        title: 'Click to zoom'
                     });
 
                     marker.setMap(map);
-                }
 
+// Zoom to 9 when clicking on marker
+                    google.maps.event.addListener(marker, 'click', function () {
+                        map.setZoom(9);
+                        map.setCenter(marker.getPosition());
+                    });
+                    $("#myModal").on("shown.bs.modal", function () {
+
+                        google.maps.event.trigger(googleMap, "resize");
+                        //map.setCenter(google.maps.marker.getPosition());
+                        return map.setCenter(myCenter);
+                        // Set here center map coordinates
+                    });
+
+                }
                 google.maps.event.addDomListener(window, 'load', initialize);
-
-
-
-                google.maps.event.addDomListener(window, "resize", resizingMap());
-
-                $('#myModal').on('show.bs.model', function () {
-                    //Must wait until the render of the modal appear, thats why we use the resizeMap and NOT resizingMap!! ;-)
-                    resizeMap();
-                })
-
-                function resizeMap() {
-                    if (typeof map == "undefined")
-                        return;
-                    setTimeout(function () {
-                        resizingMap();
-                    }, 400);
-                }
-
-                function resizingMap() {
-                    if (typeof map == "undefined")
-                        return;
-                    var center = map.getCenter();
-                    google.maps.event.trigger(map, "resize");
-                    map.setCenter(center);
-                }
-
             });
+
+            function myfunction() {
+                return "bye";
+            }
         </script>
     </head>
-    <body data-spy="scroll" data-target=".navbar-collapse">
+    <body>
+        <?php
+        if (isset($error)) {
+            echo '<div class="alert alert-danger">' . $error . '</div>';
+        }
+        if (isset($message)) {
+            echo '<div class="alert alert-success">' . $message . '</div>';
+        }
+        ?>
         <nav class="nav navbar-inverse">
             <div class="nav container-fluid">
                 <div class="navbar-header">
@@ -194,7 +194,7 @@ include("changepassword.php");
 
                     </div>
 
-                    <input type="submit" class="btn btn-default margintop" name="editdone" id="search" value="Done">
+                    <input type="submit" class="btn btn-success margintop" name="editdone" id="search" value="Done">
                     <input type="submit" class="btn btn-default margintop" name="cancel" id="cancel" value="Cancel">
 
                 </div>
@@ -227,7 +227,7 @@ include("changepassword.php");
 
                     </div>
                     <div class="form-group">
-                        <label for="lastname" title="Your Last Nmae" class="control-label col-md-4">Last Name*:</label>
+                        <label for="lastname" class="control-label col-md-4">Last Name*:</label>
                         <div class="col-md-6">
                             <?php echo $lastname1; ?></div>
                         <span id="lnamelocation"></span>
@@ -276,7 +276,7 @@ include("changepassword.php");
                     </div>
 
 
-                    <br><br> <input type="submit" class="btn btn-default margintop" name="viewcancel" id="cancel" value="Cancel">
+                    <input type="submit" class="btn btn-default margintop col-md-offset-3"  name="viewcancel" id="cancel" value="Cancel">
 
                 </div>
 
@@ -321,30 +321,30 @@ include("changepassword.php");
                     <div class="col-md-6">
                         <div class="input-group">
 
-                            <input type="type" class="form-control" id="currentpassword" name="currentpassword" title="Your Email" placeholder="your Email"></div>
+                            <input type="password" class="form-control" id="currentpassword" name="currentpassword" placeholder="Email Address" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter correct Password')"></div>
                     </div>
 
                 </div>
                 <div class="form-group">
-                    <label for="changepassword" class="control-label col-md-2">Change Password*:</label>
+                    <label for="newPassword" class="control-label col-md-2">New Password*:</label>
                     <div class="col-md-6">
                         <div class="input-group">
 
-                            <input type="type" class="form-control" id="changepassword" name="changepassword" title="Your Email" placeholder="your Email"></div>
+                            <input type="password" class="form-control" id="newPassword" name="changepassword" placeholder="Email Address" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter New Password')"></div>
                     </div>
 
                 </div>
                 <div class="form-group">
-                    <label for="retypepassword" class="control-label col-md-2">Conform Password*:</label>
+                    <label for="confirmPassword" class="control-label col-md-2">Conform Password*:</label>
                     <div class="col-md-6">
                         <div class="input-group">
 
-                            <input type="type" class="form-control" id="retypepassword" name="retypepassword" title="Your Email" placeholder="your Email"></div>
+                            <input type="password" class="form-control" id="confirmPassword" name="retypepassword" placeholder="Email Address" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Password should be match with New password')"></div>
                     </div>
 
                 </div>
 
-                <input type="submit" class="btn btn-default margintop" name="newpassword" id="search" value="Done">
+                <input type="submit" class="btn btn-success margintop" name="newpassword" id="search" value="Done">
                 <input type="submit" class="btn btn-default margintop" id="cancel" value="cancel">
 
             </div>

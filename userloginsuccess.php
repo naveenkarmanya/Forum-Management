@@ -1,10 +1,10 @@
 <?php
 $link = mysqli_connect('localhost', 'dbuser', '123', 'userdata');
 session_start();
-$id=$_SESSION["id"];
-$queryAdminLogIn="select firstname from forum where forumid='$id'";
-$resultAdminLogIn=mysqli_query($link,$queryAdminLogIn);
-$row=mysqli_fetch_row($resultAdminLogIn);
+$id=$_SESSION["email"];
+$queryUserSubmit="select firstname from forum where email='$id'";
+$resultUserSubmit=mysqli_query($link,$queryUserSubmit);
+$row=mysqli_fetch_row($resultUserSubmit);
 ?>
 <html>
     <head>
@@ -25,7 +25,7 @@ $row=mysqli_fetch_row($resultAdminLogIn);
                 <h3><?php echo $row[0] ;?></h3>
             </div>
             <div class="col-md-10 col-md-offset-2">
-                <h1>Admin Login Successful <a href="admindashboard.php">Click me</a></h1>
+                <h1>Login Successful <a href="userdashboard.php"> Please Click Here</a></h1>
             </div>
         </div>
     </body>
