@@ -45,4 +45,15 @@ $(document).ready(function ()
         $("#changepassword").hide();
         $("#view").show();
     });
+     
+    $("#addAdminusers").click(function () {
+        $("#addusers").show();
+         $("#userprofilehide").hide();
+       
+    });
+    $("#userprofile").click(function () {
+        $("#userprofilehide").show();
+        $("#addusers").hide();
+       
+    });
 });

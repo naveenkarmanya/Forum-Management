@@ -3,6 +3,7 @@ include("registration.php");
 include("login.php");
 include("adminlogin.php");
 include("forgotpassword.php");
+
 ?>
 
 <!doctype html>
@@ -71,6 +72,14 @@ include("forgotpassword.php");
                         <br>
                         <p class=" col-md-6 pull-right" id="findpswd"><a href="#forgotpassword">Forgot Password</a></p>
                         <p class=" pull-right" id="newreg"><a href="#register">New User Registration</a></p> 
+                        <?php
+                    if (isset($error)) {
+                        echo '<div class="alert alert-danger">' . $error . '</div>';
+                    }
+                    if (isset($message)) {
+                        echo '<div class="alert alert-danger">' . $message . '</div>';
+                    }
+                    ?>
                     </form>
 
 
@@ -194,14 +203,7 @@ include("forgotpassword.php");
 
                     </div>
                     <input type="submit" class="btn btn-success btn-lg margintop" name="signup" value="Sign Up">
-                    <?php
-                    if (isset($error)) {
-                        echo '<div class="alert alert-danger">' . $error . '</div>';
-                    }
-                    if (isset($message)) {
-                        echo '<div class="alert alert-danger">' . $message . '</div>';
-                    }
-                    ?>
+                    
                 </form>
             </div>
         </div>

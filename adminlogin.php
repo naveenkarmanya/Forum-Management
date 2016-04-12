@@ -17,10 +17,14 @@ if (isset($_POST['login1'])) {
     } else {
         $_SESSION['id'] = $row['adminid'];
 
-        header("Location:admindashboard.php");
+        header("Location:adminloginsuccess.php");
     }
 }
 ?>
+
+        
+    </body>
+</html>
 
 
 

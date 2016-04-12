@@ -55,6 +55,6 @@ $mail->AltBody = 'This is a plain-text message body';
 if (!$mail->send()) {
     echo "Mailer Error: " . $mail->ErrorInfo;
 } else {
-    echo "Message sent!Please".'<a href="#">---Login---</a>.here';
+    header("Location:usersingnupsuccess.php");
 }
 ?>
