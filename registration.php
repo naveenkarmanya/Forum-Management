@@ -17,14 +17,14 @@ if (isset($_POST['signup'])) {
         $link = mysqli_connect('localhost', 'dbuser', '123', 'userdata');
 
         if (!($_POST["email"] == "" && !($_POST["password"]))) {
-            $queryselect = "select * from forum where email='$email' and password='$password'";
+            $queryselect = "select * From Forum where EmailAddress='$email' and Password='$password'";
             $resultselect = mysqli_query($link, $queryselect);
             $values = mysqli_fetch_array($resultselect);
 
             if ($values) {
                 $error = "email already registered";
             } else {
-                $query = "insert into forum(firstname,lastname,email,password,mobile) values('$first','$last','$email','$password','$mobile')";
+                $query = "insert into Forum(FirstName,LastName,EmailAddress,Password,MobileNumber) values('$first','$last','$email','$password','$mobile')";
                 $result = mysqli_query($link, $query);
             }
         } else {

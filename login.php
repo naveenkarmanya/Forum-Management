@@ -6,7 +6,7 @@ if (isset($_POST['logincheck'])) {
 
     $link = mysqli_connect('localhost', 'dbuser', '123', 'userdata');
 
-    $query1 = "select forumid,email,password from forum where password='$password' and email='$email'";
+    $query1 = "select ForumId,EmailAddress,Password from Forum where Password='$password' and EmailAddress='$email'";
 
     $result1 = mysqli_query($link, $query1);
 

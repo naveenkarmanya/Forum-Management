@@ -2,7 +2,7 @@
 $link = mysqli_connect('localhost', 'dbuser', '123', 'userdata');
 session_start();
 $id = $_SESSION["email"];
-$queryUserSubmit = "select firstname from forum where email='$id'";
+$queryUserSubmit = "select FirstName from Forum where EmailAddress='$id'";
 $resultUserSubmit = mysqli_query($link, $queryUserSubmit);
 $row = mysqli_fetch_row($resultUserSubmit);
 ?>

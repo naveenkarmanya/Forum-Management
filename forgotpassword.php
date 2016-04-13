@@ -12,7 +12,7 @@ if (isset($_POST['search'])) {
         $link = mysqli_connect('localhost', 'dbuser', '123', 'userdata');
 
 
-        $queryselect = "select email,password from forum where email='$email'";
+        $queryselect = "select EmailSddress,Password from Forum where EmailAddress='$email'";
         $resultselect = mysqli_query($link, $queryselect);
         $values = mysqli_fetch_array($resultselect);
 

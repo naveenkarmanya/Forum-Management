@@ -14,6 +14,7 @@
         <script src="js/jquery.min.js" type="text/JavaScript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/form.js" type="text/javascript"></script>
+        <script src="js/passwordvalidation.js" type="text/javascript"></script>
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/t/dt/dt-1.10.11/datatables.min.css"/>
 
         <script type="text/javascript" src="https://cdn.datatables.net/t/dt/dt-1.10.11/datatables.min.js"></script>
@@ -56,7 +57,7 @@
             <?php
             $link = mysqli_connect('localhost', 'dbuser', '123', 'userdata');
 
-            $query = "select firstname, lastname, email from forum";
+            $query = "select FirstName, LastName, EmailAddress from Forum";
             $result = mysqli_query($link, $query);
             ?>
 
@@ -142,15 +143,15 @@
                         <span id="emaillocation"></span>
                     </div>
                     <div class="form-group">
-                        <label for="password" class="control-label col-md-2">Password*:</label>
+                        <label for="newPassword" class="control-label col-md-2">Password*:</label>
                         <div class="col-md-6">
-                            <input type="password" class="form-control" id="password" name="password" placeholder="Password" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter Password')"></div>
+                            <input type="password" class="form-control" id="newPassword" name="password" placeholder="Password" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter Password')"></div>
                         <span id="pwdlocation"></span>
                     </div>
                     <div class="form-group">
-                        <label for="conformpassword" class="control-label col-md-2">Conform Password*:</label>
+                        <label for="confirmPassword" class="control-label col-md-2">confirm Password*:</label>
                         <div class="col-md-6">
-                            <input type="password" class="form-control" id="conformpassword" name="conformpassword" placeholder="Retype Password" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Password should be Match')"></div>
+                            <input type="password" class="form-control" id="confirmPassword" name="conformpassword" placeholder="Retype Password" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Password should be Match')"></div>
                         <span id="cpwdlocation"></span>
                     </div>
 
@@ -165,14 +166,7 @@
 
                     </div>
                     <input type="submit" class="btn btn-success btn-lg margintop" name="adminCreateUser" value="Submit">
-                    <?php
-                    if (isset($error)) {
-                        echo '<div class="alert alert-danger">' . $error . '</div>';
-                    }
-                    if (isset($message)) {
-                        echo '<div class="alert alert-danger">' . $message . '</div>';
-                    }
-                    ?>
+                    
                 </form>
 
 

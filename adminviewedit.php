@@ -20,7 +20,7 @@
         <script type="text/javascript">
 
             var geocoder = new google.maps.Geocoder();
-            var address = "<?php echo $row[7]; ?>";
+            var address = "<?php echo $row[11]; ?>";
 
 
             geocoder.geocode({'address': address}, function (results, status) {

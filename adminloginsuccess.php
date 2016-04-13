@@ -2,7 +2,7 @@
 $link = mysqli_connect('localhost', 'dbuser', '123', 'userdata');
 session_start();
 $id = $_SESSION["id"];
-$queryAdminLogIn = "select username from admin where adminid='$id'";
+$queryAdminLogIn = "select UserName from Admin where AdminId='$id'";
 $resultAdminLogIn = mysqli_query($link, $queryAdminLogIn);
 $row = mysqli_fetch_row($resultAdminLogIn);
 

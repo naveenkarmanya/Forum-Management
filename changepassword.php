@@ -4,7 +4,7 @@ if (isset($_POST['newpassword'])) {
 
     $id = $_SESSION['id'];
     $link = mysqli_connect('localhost', 'dbuser', '123', 'userdata');
-    $query1 = "select password from forum where forumid='$id'";
+    $query1 = "select Password from Forum where ForumId='$id'";
     $result1 = mysqli_query($link, $query1);
     if (!$result1) {
         echo "not found";
@@ -16,7 +16,7 @@ if (isset($_POST['newpassword'])) {
 
         if ($currentpassword == $row[0]) {
 
-            $query2 = "update forum set password='$newpassword' where forumid='$id'";
+            $query2 = "update Forum set Password='$newpassword' where ForumId='$id'";
 
             $result2 = mysqli_query($link, $query2);
 

@@ -5,7 +5,7 @@ if (isset($_POST['login1'])) {
 
     $link = mysqli_connect('localhost', 'dbuser', '123', 'userdata');
 
-    $query1 = "select adminid from admin where password='$password' and email='$email'";
+    $query1 = "select AdminId from Admin where Password='$password' and EmailAddress='$email'";
 
     $result1 = mysqli_query($link, $query1);
 
@@ -13,7 +13,7 @@ if (isset($_POST['login1'])) {
     if (!$row) {
         $error = "Login Failed check the credentials ";
     } else {
-        $_SESSION['id'] = $row['adminid'];
+        $_SESSION['id'] = $row['AdminId'];
 
         header("Location:adminloginsuccess.php");
     }

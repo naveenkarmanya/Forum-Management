@@ -4,7 +4,7 @@ $link = mysqli_connect('localhost', 'dbuser', '123', 'userdata');
 session_start();
 $email = $_SESSION["email"];
 
-$queryuser = "select * from forum where email='$email'";
+$queryuser = "select * from Forum where EmailAddress='$email'";
 $resultuser = mysqli_query($link, $queryuser);
 $rowuser = mysqli_fetch_row($resultuser);
 if ($rowuser) {
@@ -12,13 +12,13 @@ if ($rowuser) {
     $userFirstName = $rowuser[0];
     $userLastName = $rowuser[1];
     $userEmailAddress = $rowuser[2];
-    $userMobileNumber = $rowuser[5];
-    $userAddressOne = $rowuser[6];
-    $userAddressTwo = $rowuser[7];
-    $userCity = $rowuser[8];
-    $userState = $rowuser[9];
-    $userCountry = $rowuser[10];
-    $userZipCode = $rowuser[11];
+    $userMobileNumber = $rowuser[4];
+    $userAddressOne = $rowuser[5];
+    $userAddressTwo = $rowuser[11];
+    $userCity = $rowuser[6];
+    $userState = $rowuser[8];
+    $userCountry = $rowuser[7];
+    $userZipCode = $rowuser[9];
 } else {
     $error = "Could not retrieve the details try again";
 }
@@ -37,7 +37,7 @@ if (isset($_POST["adminEditFront"])) {
     $zipcode = $_POST["zipcode"];
 
     $type = "User";
-    $query = "update forum set firstname='$firstName', lastname='$lastName', email='$emailAddress', mobile='$mobileNumber', AddressOne='$addressOne', AddressTwo='$addressTwo', City='$city', State='$state', Country='$country', ZipCode='$zipcode' where email='$email'";
+    $query = "update Forum set FirstName='$firstName', LastName='$lastName', EmailAddress='$emailAddress', MobileNumber='$mobileNumber', AddressOne='$addressOne', AddressTwo='$addressTwo', City='$city', State='$state', Country='$country', ZipCode='$zipcode' where EmailAddress='$email'";
     $result = mysqli_query($link, $query);
     if (!$result) {
         $error = "Error while registering Try ones again";

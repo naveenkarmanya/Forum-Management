@@ -26,7 +26,7 @@ include("changepassword.php");
         <script type="text/javascript">
 
             var geocoder = new google.maps.Geocoder();
-            var address = "<?php echo $row[7]; ?>";
+            var address = "<?php echo $row[11]; ?>";
             geocoder.geocode({'address': address}, function (results, status) {
 
 
@@ -288,7 +288,7 @@ include("changepassword.php");
                                 <h4 class="modal-title">Google Map</h4>
                             </div>
                             <div class="modal-body">
-                                <div id="googleMap" style="width:500px;height:380px;"></div>
+                                <div id="googleMap" style="height:380px;"></div>
 
                             </div>
                         </div>
