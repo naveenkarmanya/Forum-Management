@@ -18,7 +18,9 @@ include("forgotpassword.php");
         <link rel="stylesheet" href="css/form.css" type="text/css">
         <script src="js/jquery.min.js" type="text/JavaScript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
+
         <script src="js/form.js" type="text/javascript"></script>
+
         <script src="js/passwordvalidation.js" type="text/javascript"></script>
 
 
@@ -145,7 +147,7 @@ include("forgotpassword.php");
                 <form class="form-horizontal" id="form1" method="post">
                     <h1><u>Registration Page</u></h1>
                     <div class="form-group">
-                        <label for="firstname" class="control-label col-md-2">First Name*:</label>
+                        <label for="FirstName" class="control-label col-md-2">First Name*:</label>
                         <div class="col-md-6">
                             <input type="text" class="form-control" id="FirstName" name="firstname" placeholder="First Name" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter First Name')"></div>
                         <span id="fnamelocation"></span>

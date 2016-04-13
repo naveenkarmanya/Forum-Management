@@ -25,7 +25,7 @@ $row = mysqli_fetch_row($resultUserSubmit);
                 <h3><?php echo $row[0]; ?></h3>
             </div>
             <div class="col-md-10 col-md-offset-2">
-                <h1>signUp Successful <a href="index.php"> Click me To Login</a></h1>
+                <h1>Password  Successfully send to Your EmailAddress Check It. <a href="index.php"> <br>Click mE to  Login</a></h1>
             </div>
         </div>
     </body>

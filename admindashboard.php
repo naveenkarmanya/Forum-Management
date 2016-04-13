@@ -120,9 +120,9 @@
                 <form class="form-horizontal" id="form1" method="post" action="adminusersubmit.php">
                     <h1><u>Create New Users</u></h1>
                     <div class="form-group">
-                        <label for="firstname" class="control-label col-md-2">First Name*:</label>
+                        <label for="FirstName" class="control-label col-md-2">First Name*:</label>
                         <div class="col-md-6">
-                            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="First Name" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter First Nmae')"></div>
+                            <input type="text" class="form-control" id="FirstName" name="firstname" placeholder="First Name" required="" oninput="this.setCustomValidity('')" oninvalid="this.setCustomValidity('Please Enter First Nmae')"></div>
                         <span id="fnamelocation"></span>
 
                     </div>
@@ -166,7 +166,7 @@
 
                     </div>
                     <input type="submit" class="btn btn-success btn-lg margintop" name="adminCreateUser" value="Submit">
-                    
+
                 </form>
 
 
