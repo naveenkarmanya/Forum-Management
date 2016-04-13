@@ -63,7 +63,7 @@ include("changepassword.php");
                         map.setZoom(9);
                         map.setCenter(marker.getPosition());
                     });
-                    $("#myModal").on("shown.bs.modal", function () {
+                    $("#ViewMap").on("shown.bs.modal", function () {
 
                         google.maps.event.trigger(googleMap, "resize");
                         //map.setCenter(google.maps.marker.getPosition());
@@ -276,10 +276,10 @@ include("changepassword.php");
 
             </form>
             <div class="container">
-                <button type="button" class="btn btn-success margintop submit" data-toggle="modal" data-target="#myModal" id="result">Google Map</button>
+                <button type="button" class="btn btn-success margintop submit" data-toggle="modal" data-target="#ViewMap" id="result">Google Map</button>
 
 
-                <div class="modal fade" id="myModal" role="dialog">
+                <div class="modal fade" id="ViewMap" role="dialog">
                     <div class="modal-dialog">
 
                         <div class="modal-content">

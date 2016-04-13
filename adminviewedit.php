@@ -58,7 +58,7 @@
 
             });
 
-            $("#myModal").on("shown", function () {
+            $("#MapLocation").on("shown", function () {
                 google.maps.event.trigger(map, "resize");
                 return map.setCenter(markerLatLng); // Set here center map coordinates
             });
