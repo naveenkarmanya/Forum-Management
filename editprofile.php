@@ -30,9 +30,9 @@ if (isset($_POST['editdone'])) {
         $result2 = mysqli_query($link, $query2);
 
         if (!$result2) {
-            echo "There is an error  ";
+            $error = "There is an error  ";
         } else {
-            echo "successfully edited";
+            $message = "successfully edited";
         }
     }
 }

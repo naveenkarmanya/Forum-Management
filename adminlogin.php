@@ -1,13 +1,11 @@
 <?php
-
-
 if (isset($_POST['login1'])) {
     $email = $_POST['loginemail1'];
     $password = $_POST['loginpassword1'];
 
     $link = mysqli_connect('localhost', 'dbuser', '123', 'userdata');
 
-    $query1 = "select email,password from admin where password='$password' and email='$email'";
+    $query1 = "select adminid from admin where password='$password' and email='$email'";
 
     $result1 = mysqli_query($link, $query1);
 
@@ -22,8 +20,8 @@ if (isset($_POST['login1'])) {
 }
 ?>
 
-        
-    </body>
+
+</body>
 </html>
 
 

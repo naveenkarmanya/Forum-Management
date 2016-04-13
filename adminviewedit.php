@@ -2,7 +2,7 @@
 <html>
     <head>
         <title>User Login success page</title>
-<meta charset="utf-8">
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta content="regitration" name="description" >
         <meta name="keywords" content="html,css,javascript">
@@ -20,7 +20,7 @@
         <script type="text/javascript">
 
             var geocoder = new google.maps.Geocoder();
-            var address = "<?php echo $variable; ?>";
+            var address = "<?php echo $row[7]; ?>";
 
 
             geocoder.geocode({'address': address}, function (results, status) {
@@ -86,23 +86,25 @@
 
                         <li class="active" id="userprofile">
                             <a href="#userprofilehide"><span class="glyphicon glyphicon-user">UsersProfile</span></a></li>
-                        
+
 
                     </ul>
                     <ul class="nav navbar-nav pull-right">
                         <li> <a href="admindashboard.php"><span class="glyphicon glyphicon-step-backward">GoBack</span></a></li>
-</ul>
+                    </ul>
                 </div>
 
 
             </div>
         </nav>
-        
+
         <div class="container">
             <div class="row">
-                <div class="col-md-8 col-md-offset-1 top"><?php if (isset($error)) {
-    echo "<div class='alert alert-danger'>" . $error . "</div>";
-} ?></div>
+                <div class="col-md-8 col-md-offset-1 top"><?php
+                    if (isset($error)) {
+                        echo "<div class='alert alert-danger'>" . $error . "</div>";
+                    }
+                    ?></div>
                 <form class="form-horizontal" method="post">
                     <div class="col-md-12 topmore">
                         <div class="col-md-3 col-md-offset-2">
@@ -123,7 +125,7 @@
 
                         <div class="col-md-3 col-md-offset-1">
                             <label>Mobile Number:</label>
-                           <?php echo $mobileNumber; ?>
+                            <?php echo $mobileNumber; ?>
                         </div>
                     </div>
 
@@ -135,14 +137,14 @@
 
                         <div class="col-md-3 col-md-offset-1">
                             <label>Address Line 2:</label>
-                           <?php echo $addressLineTwo; ?>
+                            <?php echo $addressLineTwo; ?>
                         </div>
                     </div>
 
                     <div class="col-md-12 top">
                         <div class="col-md-3 col-md-offset-2">
                             <label>City:</label>
-                           <?php echo $city; ?>
+                            <?php echo $city; ?>
                             <p id="citypara"></p>
                         </div>
 
@@ -155,7 +157,7 @@
                     <div class="col-md-12 top">
                         <div class="col-md-3 col-md-offset-2">
                             <label>Country:</label>
-                           <?php echo $country; ?>
+                            <?php echo $country; ?>
                             <p id="countrypara"></p>
                         </div>
 
@@ -175,13 +177,13 @@
                 </form>
 
             </div>
-            
+
 
         </div>
-        
-                <div class="col-md-6 col-md-offset-3 topmore">
-                    <div id="googleMap" style="width:500px;height:380px;"></div>
-                </div>
+
+        <div class="col-md-6 col-md-offset-3 topmore">
+            <div id="googleMap" style="width:500px;height:380px;"></div>
+        </div>
 
     </body>
 

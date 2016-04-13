@@ -81,14 +81,7 @@ include("changepassword.php");
         </script>
     </head>
     <body>
-        <?php
-        if (isset($error)) {
-            echo '<div class="alert alert-danger">' . $error . '</div>';
-        }
-        if (isset($message)) {
-            echo '<div class="alert alert-success">' . $message . '</div>';
-        }
-        ?>
+
         <nav class="nav navbar-inverse">
             <div class="nav container-fluid">
                 <div class="navbar-header">
@@ -125,6 +118,14 @@ include("changepassword.php");
 
             </div>
         </nav>
+        <?php
+        if (isset($error)) {
+            echo '<div class="alert alert-danger">' . $error . '</div>';
+        }
+        if (isset($message)) {
+            echo '<div class="alert alert-success">' . $message . '</div>';
+        }
+        ?>
         <div class="container margintop" id="edit" hidden>
 
             <form class="form-horizontal" method="post">
@@ -199,14 +200,7 @@ include("changepassword.php");
 
                 </div>
 
-                <?php
-                if (isset($error)) {
-                    echo '<div class="alert alert-danger">' . $error . '</div>';
-                }
-                if (isset($message)) {
-                    echo '<div class="alert alert-danger">' . $message . '</div>';
-                }
-                ?>
+
             </form>
 
         </div>
@@ -345,7 +339,7 @@ include("changepassword.php");
                 </div>
 
                 <input type="submit" class="btn btn-success margintop" name="newpassword" id="search" value="Done">
-                <input type="submit" class="btn btn-default margintop" id="cancel" value="cancel">
+
 
             </div>
 
