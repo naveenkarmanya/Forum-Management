@@ -1,9 +1,7 @@
 <?php
 
 session_start();
-if ($_GET['logput'] == 1) {
-    session_destroy();
-}
+
 if (isset($_POST['signup'])) {
 
     if ($_POST["signup"] == "Sign Up") {
