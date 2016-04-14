@@ -21,8 +21,6 @@
 
             var geocoder = new google.maps.Geocoder();
             var address = "<?php echo $row[11]; ?>";
-
-
             geocoder.geocode({'address': address}, function (results, status) {
 
 
@@ -36,11 +34,12 @@
 
                 var myCenter = new google.maps.LatLng(latitude, longitude);
 
+
                 function initialize()
                 {
                     var mapProp = {
                         center: myCenter,
-                        zoom: 8,
+                        zoom: 12,
                         mapTypeId: google.maps.MapTypeId.ROADMAP
                     };
 
@@ -48,22 +47,31 @@
 
                     var marker = new google.maps.Marker({
                         position: myCenter,
+                        title: 'Click to zoom'
                     });
 
                     marker.setMap(map);
+
+// Zoom to 9 when clicking on marker
+                    google.maps.event.addListener(marker, 'click', function () {
+                        map.setZoom(9);
+                        map.setCenter(marker.getPosition());
+                    });
+                    $("#MapLocation").on("shown.bs.modal", function () {
+
+                        google.maps.event.trigger(googleMap, "resize");
+                        //map.setCenter(google.maps.marker.getPosition());
+                        return map.setCenter(myCenter);
+                        // Set here center map coordinates
+                    });
+
                 }
-
                 google.maps.event.addDomListener(window, 'load', initialize);
-
-
             });
 
-            $("#MapLocation").on("shown", function () {
-                google.maps.event.trigger(map, "resize");
-                return map.setCenter(markerLatLng); // Set here center map coordinates
-            });
-
-
+            function myfunction() {
+                return "bye";
+            }
         </script>
 
 
@@ -176,15 +184,38 @@
                     </div>
                 </form>
 
+           
+
+
+    
+
+        <div class="container">
+                <button type="button" class="btn btn-success margintop submit" data-toggle="modal" data-target="#MapLocation" id="result">MapLocation</button>
+
+
+                <div class="modal fade" id="MapLocation" role="dialog">
+                    <div class="modal-dialog">
+
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title">MapLocation</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div id="googleMap" style="height:380px;"></div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" id="closed">Close</button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+                 </div>
 
-
-        </div>
-
-        <div class="col-md-6 col-md-offset-3 topmore">
-            <div id="googleMap" style="width:500px;height:380px;"></div>
-        </div>
-
+    </div>
     </body>
 
 
